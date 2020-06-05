@@ -1,4 +1,4 @@
-def putMarker(marker, b):
+def putMarker(marker, b, p):
     
     x = marker[0]
     y = marker[1]
@@ -8,6 +8,8 @@ def putMarker(marker, b):
     if (b[x][y] != '-'):
         print('space occupied')
         return -1
+    else:
+        b[x][y] = p
 
       
     

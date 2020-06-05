@@ -22,7 +22,11 @@ p2 = 'O'
 
 # ask user for their move
 marker = getMove(p1)
-putMarker(marker, b)
+putMarker(marker, b, p1)
+printBoard(b)
 
-heading = 'nw'
+heading = 5 # this is default current position of marker
+target = inspectBoard(marker, b, heading)
+
+
 flipColors(marker, b, heading)
