@@ -10,13 +10,13 @@ def getMove():
 
     # no bad input handling yet
 
-    ## 1st char is y value, convert ASCII to int value
-    y = move[0]
-    y = (ord(y) - 65) # subtract value of capital A to set to zero-origin for array index
+    ## 1st char is x value, convert ASCII to int value
+    x = move[0].upper()
+    x = (ord(x) - 65) # subtract value of capital A to set to zero-origin for array index
 
-    ## 2nd char is x value, cast to int
-    x = move[1]
-    x = (int(x) - 1) # subtract 1 to set to zero-origin for array index
+    ## 2nd char is y value, cast to int
+    y = move[1]
+    y = (int(y) - 1) # subtract 1 to set to zero-origin for array index
 
     # print(str(x) + "," + str(y))
 
