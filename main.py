@@ -21,10 +21,11 @@ def printBoard(b):
 
 		for j in range(len(row)):
 			col = row[j]			
-			print(col + " {}".format(" "), end='')
-		
-		print('\n')
-
+			
+			if j < (len(row)-1):
+				print(col + "{}".format(" "), end="")
+			else:
+				print(col + "{}".format(" "))
 
 
 ## main stuff
