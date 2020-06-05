@@ -1,6 +1,6 @@
 import string
 
-def getMove():
+def getMove(p):
 
     ## ask for input
     move = input("Your move: ")
@@ -20,5 +20,5 @@ def getMove():
 
     # print(str(x) + "," + str(y))
 
-    return (x,y)
+    return (x,y,p)
     
