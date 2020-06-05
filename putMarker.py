@@ -11,5 +11,8 @@ def putMarker(marker, b, p):
     else:
         b[x][y] = p
 
-      
+    # print("putMarker: ", end="")
+    # print(x, y, p)
+
+    return b
     

@@ -22,11 +22,11 @@ p2 = 'O'
 
 # ask user for their move
 marker = getMove(p1)
-putMarker(marker, b, p1)
+b = putMarker(marker, b, p1)
+
+heading = 4 # this is default current position of marker
+
+pieces = []
+b = inspectBoard(marker, b, heading, pieces)
+
 printBoard(b)
-
-heading = 5 # this is default current position of marker
-target = inspectBoard(marker, b, heading)
-
-
-flipColors(marker, b, heading)

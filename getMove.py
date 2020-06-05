@@ -20,5 +20,6 @@ def getMove(p):
 
     # print(str(x) + "," + str(y))
 
-    return (x,y,p)
+    # board location reference is reverse from user input
+    return (y,x,p)
     

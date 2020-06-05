@@ -1,15 +1,11 @@
-from inspectBoard import inspectBoard
-
-def flipColors(marker, b, heading):
+def flipColors(b, pieces):
     
-    x = marker[0]
-    y = marker[1]
-    p = marker[2]
+    for px in pieces:
 
-    if (b[x][y] == p):
-        return -1
-    elif (b[x][y] == '-'):
-        return -2
-            
+        x = px[0]
+        y = px[1]
+        p = px[2]
 
+        b[x][y] = p
     
+    return b
