@@ -1,6 +1,9 @@
 from createBoard import createBoard
 from printBoard import printBoard
 from getMove import getMove
+from putMarker import putMarker
+from flipColors import flipColors
+from translateDirection import translateDirection
 
 ######################
 ## REVERSI GAME
@@ -16,5 +19,8 @@ printBoard(b)
 
 
 # ask user for their move
-player_p1 = getMove()
-# print(player_p1)
+marker = getMove()
+putMarker(marker, b)
+
+search_direction = 'nw'
+flipColors(marker, b, search_direction)
