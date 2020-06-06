@@ -1,6 +1,6 @@
 from flipColors import flipColors
 
-def inspectBoard(move, b, heading, pieces) -> tuple:
+def inspectBoard(move, b, heading, pieces) -> list:
 
     y = move[0]
     x = move[1]
@@ -27,17 +27,29 @@ def inspectBoard(move, b, heading, pieces) -> tuple:
     ## we will check this direction on the board for an opposite player piece/move
     
     if heading == 4:
-        for h in range(len(b)):
-            target = compass[h]
-           
+        for h in range(len(b)+1):
+            
+            if h == heading:
+                continue
+            else:
+                target = compass[h]
+               
             dst_y = target[0]
             dst_x = target[1]
-            dst_sq = b[dst_y][dst_x]
+
+            ## check for array out of bounds
+            if (dst_y < 0) or (dst_y > len(b)):
+                continue
+            elif (dst_x < 0) or (dst_x > len(b)):
+                continue
+            else:
+                dst_sq = b[dst_y][dst_x]
 
             if (dst_sq == player):
                 continue
             elif (dst_sq == '-'):
-                continue
+                # continue
+                pieces = []
             else:
                 target = (dst_y, dst_x, player)
                 pieces.append(target)
@@ -54,9 +66,11 @@ def inspectBoard(move, b, heading, pieces) -> tuple:
             # this is where we make the flips
             b = flipColors(b, pieces)
         elif (dst_sq == '-'):
-            pass
+            pieces = []
+            # if pieces:
+            #     pieces.remove(pieces[-1])
         else:
-            target = (dst_y, dst_x, dst_sq)
+            target = (dst_y, dst_x, player)
             pieces.append(target)
             inspectBoard((dst_y, dst_x, player), b, heading, pieces)
 

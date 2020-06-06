@@ -3,7 +3,7 @@ import string
 def getMove(p):
 
     ## ask for input
-    move = input("Your move: ")
+    move = input("Your move, {}: ".format(p))
     
     ## only take the first two chars
     move = move[:2]
