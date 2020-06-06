@@ -8,4 +8,5 @@ def flipColors(b, pieces):
 
         b[y][x] = player
     
+    pieces = []
     return b

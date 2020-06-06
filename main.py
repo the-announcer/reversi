@@ -20,7 +20,7 @@ printBoard(b)
 
 p1 = 'X'
 p2 = 'O'
-heading = 4 # this is default current position of marker
+heading = None # this is default current position of marker
 
 # ask user for their move -- returns in (y,x) coordinates to use directly in array reference
 
@@ -35,4 +35,5 @@ while True:
     b = putMarker(move, b, p1)
     b = inspectBoard(move, b, heading, [])
     printBoard(b)
+
 
