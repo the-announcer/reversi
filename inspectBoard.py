@@ -1,11 +1,11 @@
 from flipColors import flipColors
 
-def inspectBoard(marker, b, heading, pieces) -> tuple:
+def inspectBoard(move, b, heading) -> tuple:
 
-    x = marker[0]
-    y = marker[1]
-    p = marker[2]
-    
+    x = move[0]
+    y = move[1]
+    player = move[2]
+
     compass = {
 
         # visual of compass on grid
@@ -13,18 +13,18 @@ def inspectBoard(marker, b, heading, pieces) -> tuple:
         # 4,M,6
         # 7,8,9
 
-        0: (x-1, y-1, p),
-        1: (x, y-1, p),
-        2: (x+1, y-1, p),
-        3: (x-1, y, p),
-        4: (x, y, p), # self
-        5: (x+1, y, p),
-        6: (x-1, y+1, p),
-        7: (x, y+1, p),
-        8: (x+1, y+1, p)
+        0: (x-1, y-1, player),
+        1: (x, y-1, player),
+        2: (x+1, y-1, player),
+        3: (x-1, y, player),
+        4: (x, y, player), # self
+        5: (x+1, y, player),
+        6: (x-1, y+1, player),
+        7: (x, y+1, player),
+        8: (x+1, y+1, player)
     }
 
-    ## we will check this direction on the board for an opposite player piece/marker
+    ## we will check this direction on the board for an opposite player piece/move
     
     if heading == 4:
         for h in range(len(b)):
@@ -32,34 +32,34 @@ def inspectBoard(marker, b, heading, pieces) -> tuple:
            
             dst_x = target[0]
             dst_y = target[1]
-            dst_p = b[x][y]
+            dst_player = b[x][y]
 
-            if (dst_p == p):
+            if (dst_player == player):
                 continue
-            elif (dst_p == '-'):
+            elif (dst_player == '-'):
                 continue
             else:
-                target = (dst_x, dst_y, dst_p)
+                target = (dst_x, dst_y, dst_player)                
                 pieces.append(target)
-                inspectBoard((dst_x, dst_y, p), b, h, pieces)
+                inspectBoard((dst_x, dst_y, player), b, h)
 
     else:
         target = compass[heading]
 
         dst_x = target[0]
         dst_y = target[1]
-        dst_p = b[x][y]
+        dst_player = b[x][y]
 
-        if (dst_p == p):
+        if (dst_player == player):
             # this is where we make the flips
             pass
-        elif (dst_p == '-'):
+        elif (dst_player == '-'):
             # set the pieces array to blank (discard them)
             pieces = []            
         else:
-            target = (dst_x, dst_y, dst_p)
+            target = (dst_x, dst_y, dst_player)
             pieces.append(target)
-            inspectBoard((dst_x, dst_y, p), b, heading, pieces)
+            inspectBoard((dst_x, dst_y, player), b, heading)
 
     
     b = flipColors(b, pieces)

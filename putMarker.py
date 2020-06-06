@@ -1,7 +1,7 @@
-def putMarker(marker, b, p):
+def putMarker(move, b, player):
     
-    x = marker[0]
-    y = marker[1]
+    x = move[0]
+    y = move[1]
 
     ## assuming move is legal for now
     # check to see if space is occupied
@@ -9,7 +9,7 @@ def putMarker(marker, b, p):
         print('space occupied')
         return -1
     else:
-        b[x][y] = p
+        b[x][y] = player
 
     # print("putMarker: ", end="")
     # print(x, y, p)
