@@ -28,12 +28,12 @@ while True:
 
     move = getMove(p2)
     b = putMarker(move, b, p2)
-    b = inspectBoard(move, b, heading, [])
+    b = inspectBoard(move, b, heading)
     printBoard(b)
-    
+
     move = getMove(p1)
     b = putMarker(move, b, p1)
-    b = inspectBoard(move, b, heading, [])
+    b = inspectBoard(move, b, heading)
     printBoard(b)
 
 

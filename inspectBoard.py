@@ -1,7 +1,10 @@
 from flipColors import flipColors
 from validate import validate
 
-def inspectBoard(move, b, heading, pieces) -> list:
+def inspectBoard(move, b, heading) -> list:
+
+    num_pieces_added = 0
+    pieces = []
 
     y = move[0]
     x = move[1]
@@ -24,7 +27,6 @@ def inspectBoard(move, b, heading, pieces) -> list:
         7: (y, x-1, player)
     }
 
-        
     if (heading is None):
         heading = range(len(b))
         for h in heading:
@@ -40,10 +42,11 @@ def inspectBoard(move, b, heading, pieces) -> list:
             if (dst_sq == player):
                 flipColors(b, pieces)
             elif (dst_sq == '-'):
-                pieces = []
+                pieces = pieces[:-num_pieces_added]
             else:
+                num_pieces_added+=1
                 pieces.append(target)
-                inspectBoard(target, b, h, pieces)
+                inspectBoard(target, b, h)
 
     else:
         target = compass[heading]
@@ -55,9 +58,10 @@ def inspectBoard(move, b, heading, pieces) -> list:
         if (dst_sq == player):
             flipColors(b, pieces)
         elif (dst_sq == '-'):
-            pieces = []
+            pieces = pieces[:-num_pieces_added]
         else:
+            num_pieces_added+=1
             pieces.append(target)
-            inspectBoard(target, b, heading, pieces)
+            inspectBoard(target, b, heading)
     
     return b
