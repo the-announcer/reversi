@@ -2,10 +2,10 @@ def flipColors(b, pieces):
     
     for px in pieces:
 
-        x = px[0]
-        y = px[1]
-        p = px[2]
+        y = px[0]
+        x = px[1]
+        player = px[2]
 
-        b[x][y] = p
+        b[y][x] = player
     
     return b
