@@ -15,17 +15,17 @@ def printBoard(b):
 	
 
 	for i in range(len(b)):
-		row = b[i]
+		col = b[i]
 
 		# x_ascii = i+65 	# capital A is 65
 		# print(chr(x_ascii) + " " , end="")
 		print(str(i+1) + " ", end="")
 
-		for j in range(len(row)):
-			col = row[j]			
+		for j in range(len(col)):
+			row = col[j]
 			
-			if j < (len(row)-1):
-				print(col + "{}".format(" "), end="")
+			if j < (len(col)-1):
+				print(row + "{}".format(" "), end="")
 			else:
-				print(col + "{}".format(" "))
+				print(row + "{}".format(" "))
 
