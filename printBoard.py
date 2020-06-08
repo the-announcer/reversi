@@ -28,6 +28,4 @@ def printBoard(b):
 				print(row + "{}".format(" "), end="")
 			else:
 				print(row + "{}".format(" "))
-
-				#
-
+				
